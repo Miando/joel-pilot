@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="initial-scale=1, width=device-width" name="viewport">
+    <title>{% block title %}List of tasks{% endblock %}</title>
+    {% load staticfiles %}
+
+    <!--<link rel="stylesheet" type="text/css" href="{% static 'craigs/bootstrap.min.css' %}">-->
+
+    <link rel="stylesheet" type="text/css" href="{% static 'craigs/styles.css' %}">
+    <!--<script src="{% static 'craigs/js/bootstrap.min.js' %}"></script>-->
+    <!--<script src="{% static 'craigs/js/scripts.js' %}"></script>-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+
+            <div id="top">
+                <!--<div>-->
+                    <!--<a href="{% url 'craigs:home' %}"><img alt="Image" src="https://finance.cs50.net/img/logo.png"></a>-->
+                <!--</div>-->
+
+                <ul class="nav nav-pills">
+                    <li><a href="{% url 'craigs:home' %}">List of tasks</a></li>
+                    <li><a href="{% url 'craigs:create_task' %}">Create new task</a></li>
+
+                    <li><a href="#}"><strong>Log Out</strong></a></li>
+                </ul>
+
+            </div>
+</div>
+{% block body %}
+{% endblock %}
+
+
+</body>
+</html>

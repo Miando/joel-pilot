@@ -1,0 +1,213 @@
+{% extends 'craigs/base.html' %}
+{% block title %}List of Tasks{% endblock %}
+{% block body %}
+
+
+
+
+<form  method="post" action="{%url 'craigs:create_task' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+
+
+ <select>
+     {% for city in cities %}
+  <option name="city" value="{{city.city}}">{{city.city}}</option>
+     {% endfor %}
+</select>
+<br>
+   <select id="firstmenu" name="category">
+                    </select>
+                    <br/>
+    <select id="secondmenu" name="subcategory">
+    </select>
+<br>
+        <!--<label class="hasPic">-->
+                        <!--<input name="option0" class="autosubmit" value="hasPic=1" type="checkbox">-->
+                        <!--has image-->
+                        <!--</label>-->
+{% for key, value in additional_options.items %}
+<label class="{{key}}">
+{% for q in value %}
+    {% with forloop.counter as n %}
+    {{forloop.counter}}
+    {% for k,v in q.items %}
+
+                        <input name="option{{n}}" class="autosubmit" value="{{v}}" type="checkbox">
+                        {{k}}
+    <br>
+    {% endfor %}
+    {% endwith %}
+    {% endfor %}
+                        </label>
+<br>
+{% endfor %}
+    <input type="submit" value="Create Task">
+</form>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+------------------------------------------------------
+ <!--<fieldset class="question">-->
+       <!--<label >Do you have a coupon?</label>-->
+       <!--<input class="coupon_question" type="checkbox" name="coupon_question" value="1" />-->
+       <!--<span class="item-text">Yes</span>-->
+   <!--</fieldset>-->
+
+   <!--<fieldset class="answer">-->
+       <!--<label for="coupon_field">Your coupon:</label>-->
+       <!--<input type="text" name="coupon_field" id="coupon_field"/>-->
+   <!--</fieldset>-->
+   <!--<select id="firstmenu" name="category">-->
+                    <!--</select>-->
+                    <!--<br/>-->
+                    <!--<select id="secondmenu" name="option2">-->
+                    <!--</select>-->
+        <!--<label class="hasPic">-->
+                        <!--<input name="option1" class="autosubmit" value="hasPic=1" type="checkbox">-->
+                        <!--has image-->
+                        <!--</label>-->
+<!--<br>-->
+<!--<br>-->
+<!--<br>-->
+<!--<br>-->
+<!--<br>-->
+<!--<br>-->
+<!--<br>-->
+<!--<br>-->
+<!--<br>-->
+<!--<br>-->
+<!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+
+
+
+
+<script type="text/javascript">
+var items = [
+    {
+        name: '---',
+        value:'',
+        subitems: []
+    },
+    {% for key, value in categories.items %}
+    {
+        name:'{{key}}',
+        value: '{{key}}',
+        subitems: [
+        {name: '-------', value: '-------'},
+        {% for val in value %}
+        {% for a,b in val.items %}
+            {name: '{{a}}', value: '{{b}}'},
+        {% endfor %}
+        {% endfor %}
+        ]
+    },
+    {% endfor %}
+
+];
+
+
+$(function(){
+    var temp = {};
+
+    $.each(items, function(){
+        $("<option />")
+        .attr("value", this.value)
+        .html(this.name)
+        .appendTo("#firstmenu");
+        temp[this.value] = this.subitems;
+    });
+
+    $("#firstmenu").change(function(){
+        var value = $(this).val();
+        var menu = $("#secondmenu");
+
+        menu.empty();
+        $.each(temp[value], function(){
+            $("<option />")
+            .attr("value", this.value)
+            .html(this.name)
+            .appendTo(menu);
+        });
+    }).change();
+
+
+});
+{% for key, value in additional_options.items %}
+$(".{{key}}").hide();
+{% endfor %}
+$(".hasPic").hide();
+
+$("#secondmenu").change(function() {
+console.log($(this).find('option:selected').text()+ '/n');
+    if($(this).find('option:selected').text() == "ofc") {
+
+        $(".hasPic").show();
+    }
+    {% for key, value in additional_options.items %}
+    else if ($(this).find('option:selected').text() == "{{key}}"){
+    $(".{{key}}").show();
+    }
+    {% endfor %}
+    else {
+        {% for key, value in additional_options.items %}
+    $(".{{key}}").hide();
+    {% endfor %}
+    }
+});
+<!--$(".answer").hide();-->
+<!--$(".coupon_question").click(function() {-->
+    <!--if($(this).is(":checked")) {-->
+        <!--$(".answer").show();-->
+    <!--} else {-->
+        <!--$(".answer").hide();-->
+    <!--}-->
+<!--});-->
+</script>
+
+<!--{% if error_message %}-->
+    <!--<p><strong>{{error_message}}</strong></p>-->
+<!--{% endif %}-->
+
+<!--<div class="card" style="width: 20rem;">-->
+  <!--<img class="card-img-top" src="..." alt="Card image cap">-->
+  <!--<div class="card-block">-->
+    <!--<h4 class="card-title">Card title</h4>-->
+    <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+    <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
+  <!--</div>-->
+<!--</div>-->
+<!--<form  method="post" action="{%url 'craigs:create_task' %}" enctype="multipart/form-data">-->
+        <!--{% csrf_token %}-->
+    <!--<ul>-->
+        <!--<li>-->
+            <!--<div class="card-columns">-->
+            <!--<div class="card">-->
+              <!--<div class="card-block">-->
+
+                  <!--<br>-->
+
+
+
+
+
+                  <!--<input type="submit" value="Create Task">-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+        <!--</li>-->
+    <!--</ul>-->
+<!--</div>-->
+<!--</form>-->
+<!--</div>-->
+
+
+
+
+<!--{% endblock %}-->

@@ -1,0 +1,78 @@
+{% extends 'craigs/base.html' %}
+{% block title %}List of Tasks{% endblock %}
+{% block body %}
+
+{% if error_message %}
+    <p><strong>{{error_message}}</strong></p>
+{% endif %}
+{% if options %}
+
+
+        <div class="card-deck">
+        {% for option in options %}
+
+
+            <div class="card">
+              <div class="card-block">
+                  <form method="post">
+                      {% csrf_token %}
+                <a class="btn btn-default" href="{% url 'craigs:task_edit' pk=option.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                <h4 class="card-title">{{option.job_name}}</h4>
+                <h6 class="card-subtitle mb-2 text-muted">City - {{option.city}}</h6>
+                  <p class="card-text"></p>{{option.category}}</p>
+                  <p class="card-text"></p>{{option.subcategory}}</p>
+                  <div class="checkbox">
+                    <label>
+                      <input name="is_active" {% if option.is_active %}checked=""{% endif %} id="id_is_active" type="checkbox">Active job
+                    </label>
+                  </div>
+                <a href="#" class="card-link">Last Item</a>
+                  <br>
+                <a href="#" class="card-link">Delete</a>
+                  <input type="submit" value="Active">
+                       </form>
+              </div>
+            </div>
+
+        {% endfor %}
+        </div>
+
+<div class="card-columns">
+    {% for option in options %}
+  <div class="card">
+    <div class="card-block">
+      <h4 class="card-title">{{option.job_name}}</h4>
+        <h6 class="card-subtitle mb-2 text-muted">City - {{option.city}}</h6>
+          <p class="card-text"></p>{{option.category}}</p>
+          <p class="card-text"></p>{{option.subcategory}}</p>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox">Active job
+            </label>
+          </div>
+        <a href="#" class="card-link">Last Item</a>
+          <br>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted"><a href="#" class="card-link">Delete</a> </small>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+<form  method="post">
+        {% csrf_token %}
+
+<div class="card-columns">
+    <div class="card-block">
+{{ form.as_ul }}
+
+<input type="submit" value="Submit" />
+</div>
+</form>
+</div>
+
+
+
+
+{% endblock %}

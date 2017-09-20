@@ -6,6 +6,9 @@ craiglist/pipelines.py
 craiglist/settings.py
 craiglist/spiders/__init__.py
 craiglist/spiders/craig.py
+craiglist/spiders/get_cities.py
+craiglist/spiders/options.py
+craiglist/spiders/subcategories.py
 craigs/__init__.py
 craigs/admin.py
 craigs/apps.py
@@ -29,7 +32,14 @@ craigs/migrations/0009_remove_personoptions_time.py
 craigs/migrations/0010_personoptions_time.py
 craigs/migrations/0011_auto_20170907_0853.py
 craigs/migrations/0012_auto_20170907_0906.py
+craigs/migrations/0013_auto_20170912_1536.py
+craigs/migrations/0014_auto_20170912_1921.py
+craigs/migrations/0015_auto_20170913_0552.py
+craigs/migrations/0016_auto_20170915_1708.py
+craigs/migrations/0017_auto_20170915_1940.py
 craigs/migrations/__init__.py
+craigs/templatetags/__init__.py
+craigs/templatetags/my_text.py
 joelsite/__init__.py
 joelsite/settings.py
 joelsite/urls.py

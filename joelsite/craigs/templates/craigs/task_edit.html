@@ -1,47 +1,58 @@
+
 {% extends 'craigs/base.html' %}
+{% load my_text %}
 {% block title %}List of Tasks{% endblock %}
 {% block body %}
 
 
 
-
+<div id="middle">
 <form  method="post" action="{%url 'craigs:create_task' %}" enctype="multipart/form-data">
         {% csrf_token %}
 
+<input style="width: 160px" name="job_name" type="text" placeholder="name of task">
+    <br>
 
- <select>
-     {% for city in cities %}
-  <option name="city" value="{{city.city}}">{{city.city}}</option>
+ <select style="width: 160px" name="village">
+     <option disabled="" selected="" value="">city</option>
+     {% for city1 in cities %}
+        <option    value="{{city1.city_for_frontend}}">{{city1.city}}</option>
      {% endfor %}
 </select>
+
+
 <br>
-   <select id="firstmenu" name="category">
+   <select style="width: 160px" id="firstmenu" name="category">
+       <option disabled="" selected="" value="">category</option>
                     </select>
                     <br/>
-    <select id="secondmenu" name="subcategory">
+    <select style="width: 160px" id="secondmenu" name="subcategory">
+        <!--<option disabled="" selected="" value="">subcategory</option>-->
     </select>
 <br>
-        <!--<label class="hasPic">-->
-                        <!--<input name="option0" class="autosubmit" value="hasPic=1" type="checkbox">-->
-                        <!--has image-->
-                        <!--</label>-->
+
+    <!--<input name="keyword" type="text" placeholder="search keyword"/>-->
+   <input style="width: 160px" name="keyword" maxlength="250" id="id_keyword" type="text" placeholder="search keyword">
+    <br>
 {% for key, value in additional_options.items %}
-<label class="{{key}}">
+<label class="{{key|replace_plus}}">
 {% for q in value %}
     {% with forloop.counter as n %}
     {{forloop.counter}}
     {% for k,v in q.items %}
 
-                        <input name="option{{n}}" class="autosubmit" value="{{v}}" type="checkbox">
+                        <input name="option{{n}}"  value="{{v}}" type="checkbox">
                         {{k}}
     <br>
     {% endfor %}
     {% endwith %}
     {% endfor %}
                         </label>
-<br>
+
 {% endfor %}
-    <input type="submit" value="Create Task">
+    <br>
+
+    <input class="btn btn-primary" type="submit" value="Create Task">
 </form>
 <br>
 <br>
@@ -90,17 +101,12 @@
 
 <script type="text/javascript">
 var items = [
-    {
-        name: '---',
-        value:'',
-        subitems: []
-    },
     {% for key, value in categories.items %}
     {
         name:'{{key}}',
         value: '{{key}}',
         subitems: [
-        {name: '-------', value: '-------'},
+        {name: '---', value: '', disabled: '', selected: ''},
         {% for val in value %}
         {% for a,b in val.items %}
             {name: '{{a}}', value: '{{b}}'},
@@ -119,6 +125,7 @@ $(function(){
     $.each(items, function(){
         $("<option />")
         .attr("value", this.value)
+        .attr('style', 'width: 160px')
         .html(this.name)
         .appendTo("#firstmenu");
         temp[this.value] = this.subitems;
@@ -132,6 +139,7 @@ $(function(){
         $.each(temp[value], function(){
             $("<option />")
             .attr("value", this.value)
+            .attr('style', 'width: 160px')
             .html(this.name)
             .appendTo(menu);
         });
@@ -140,19 +148,19 @@ $(function(){
 
 });
 {% for key, value in additional_options.items %}
-$(".{{key}}").hide();
+$(".{{key|replace_space}}").hide();
+console.log("{{key|replace_space}}");
 {% endfor %}
-$(".hasPic").hide();
+<!--$(".hasPic").hide();-->
 
 $("#secondmenu").change(function() {
-console.log($(this).find('option:selected').text()+ '/n');
     if($(this).find('option:selected').text() == "ofc") {
 
         $(".hasPic").show();
     }
     {% for key, value in additional_options.items %}
     else if ($(this).find('option:selected').text() == "{{key}}"){
-    $(".{{key}}").show();
+    $(".{{key|replace_space}}").show().siblings("label").hide();
     }
     {% endfor %}
     else {
@@ -211,3 +219,5 @@ console.log($(this).find('option:selected').text()+ '/n');
 
 
 <!--{% endblock %}-->
+
+</div>

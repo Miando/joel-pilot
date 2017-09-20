@@ -6,9 +6,7 @@
  *
  * Global CSS.
  */
-.left {
-    float:left
-}
+
 .container
 {
     /* center contents */
@@ -19,6 +17,12 @@
 
 #middle td {
     text-align: left;
+}
+#middle {
+    text-align: center;
+}
+.middle {
+    text-align: center;
 }
 
 #middle .form-control

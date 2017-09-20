@@ -7,31 +7,32 @@
 
     <!--<link rel="stylesheet" type="text/css" href="{% static 'craigs/bootstrap.min.css' %}">-->
 
-    <link rel="stylesheet" type="text/css" href="{% static 'craigs/styles.css' %}">
     <!--<script src="{% static 'craigs/js/bootstrap.min.js' %}"></script>-->
     <!--<script src="{% static 'craigs/js/scripts.js' %}"></script>-->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<!--<script src="{% static 'craigs/styles.css' %}"></script>-->
+    <link rel="stylesheet" type="text/css" href="{% static 'craigs/styles.css' %}">
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="container">
 
+<div class="container">
+ <ul class="nav justify-content-center">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'craigs:home' %}">List of tasks</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'craigs:create_task' %}">Create new task</a></li>
+
+                    <li class="nav-item"><a  class="nav-link" href="{% url 'craigs:logout_user' %}"><strong>Log Out</strong></a></li>
+                </ul>
             <div id="top">
+
                 <!--<div>-->
                     <!--<a href="{% url 'craigs:home' %}"><img alt="Image" src="https://finance.cs50.net/img/logo.png"></a>-->
                 <!--</div>-->
 
-                <ul class="nav nav-pills">
-                    <li><a href="{% url 'craigs:home' %}">List of tasks</a></li>
-                    <li><a href="{% url 'craigs:create_task' %}">Create new task</a></li>
 
-                    <li><a href="#}"><strong>Log Out</strong></a></li>
-                </ul>
 
             </div>
 </div>

@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import Permission, User
 from django.utils import timezone
 
 
@@ -18,10 +18,10 @@ class PersonOptions(models.Model):
     city = models.CharField(max_length=250)
     category = models.CharField(max_length=250)
     subcategory = models.CharField(max_length=250)
-    options = models.CharField(max_length=1000)
-    keyword = models.CharField(max_length=250)
+    options = models.CharField(max_length=1000, blank=True)
+    keyword = models.CharField(max_length=250, blank=True)
     stop_word = models.CharField(max_length=250, blank=True)
-    time_update = models.DateTimeField(default=timezone.now, blank=True)
+    time_update = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.job_name
@@ -29,7 +29,7 @@ class PersonOptions(models.Model):
 
 class CityOptions(models.Model):
     city = models.CharField(max_length=250, unique=True)
-    city_for_frontend = models.CharField(max_length=250, blank=True)
+    city_for_frontend = models.CharField(max_length=250, unique=True)
 
     def __str__(self):
         return self.city_for_frontend

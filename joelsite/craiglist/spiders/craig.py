@@ -59,16 +59,17 @@ class MySpider(scrapy.Spider):
             for m in new:
                 message = message + '<br>' + '<a href="{}">{}</a>'.format(m[0], m[1]) + '<br>'
 
-                send_mail(
-                    'New items for: {}'.format(self.job_name),
-                    '',
-                    'mykhailo.kuznietsov@gmail.com',
-                    [p.user.email],
-                    fail_silently=False,
-                    html_message=message
-                )
+
                 p.time_update = max(new_time)
                 p.save()
+            send_mail(
+                'New items for: {}'.format(self.job_name),
+                '',
+                'mykhailo.kuznietsov@gmail.com',
+                [p.user.email],
+                fail_silently=False,
+                html_message=message
+            )
         item = {}
         # i.city = "dallas"
         # i.save()

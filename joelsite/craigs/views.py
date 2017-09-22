@@ -1,10 +1,27 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http.response import HttpResponse
-from .models import PersonOptions, CityOptions, SubCategoryOptions, AdditionalOptions
+from .models import PersonOptions, CityOptions, SubCategoryOptions, AdditionalOptions, ScrapedInfo
 from .forms import OptionsForm, NewTask, UserForm, IsActiveForm, EditOption
 from django.utils import timezone
 from collections import defaultdict
 from django.contrib.auth import authenticate, login, logout
+
+
+def last_items(request, pk):
+    if not request.user.is_authenticated():
+        return render(request, 'craigs/login.html')
+    else:
+        try:
+            scraped_ids = []
+            for options in PersonOptions.objects.filter(user=request.user, pk=pk):
+                for scraped in options.scrapedinfo_set.all():
+                    scraped_ids.append(scraped.pk)
+            last_items = ScrapedInfo.objects.filter(pk__in=scraped_ids)[::-1]
+            print(last_items)
+
+        except PersonOptions.DoesNotExist:
+            last_items = []
+        return render(request, 'craigs/last_items.html', {'last_items': last_items})
 
 
 def login_user(request):
@@ -82,6 +99,10 @@ def edit_option(request):
     if request.method == "POST":
         form = EditOption(request.POST)
         if form.is_valid():
+            data = form.cleaned_data
+            p = PersonOptions.objects.get(pk=data['pk'])
+            p.is_active = data['is_active']
+            p.save()
             # for (question, answer) in form.extra_answers():
             #     print(question, answer)
             print('================')

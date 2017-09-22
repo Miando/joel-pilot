@@ -24,6 +24,11 @@ class OptionsForm(forms.ModelForm):
         fields = ('job_name', 'city', 'category', 'subcategory', 'keyword', 'stop_word', 'is_active')
 
 
+class EditOption(forms.Form):
+    pk = forms.CharField(max_length=100, required=False)
+    is_active = forms.BooleanField(required=False)
+
+
 class NewTask(forms.Form):
     category = forms.CharField(max_length=100)
     village = forms.CharField(max_length=1000, required=False)

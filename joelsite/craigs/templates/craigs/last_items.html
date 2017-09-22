@@ -1,0 +1,35 @@
+{% extends 'craigs/base.html' %}
+{% block title %}Last items{% endblock %}
+{% block body %}
+
+{% if error_message %}
+    <p><strong>{{error_message}}</strong></p>
+{% endif %}
+<div class="middle">
+
+<br>
+
+<table class = "table table-striped">
+   <caption>Last items</caption>
+
+   <thead>
+      <tr>
+         <th>Items</th>
+      </tr>
+   </thead>
+
+   <tbody>
+   {% for last_item in last_items %}
+      <tr>
+
+         <td><a href="{{last_item.url}}">{{last_item.title}}</a></td>
+
+      </tr>
+{% endfor %}
+
+   </tbody>
+
+</table>
+    </div>
+
+{% endblock %}

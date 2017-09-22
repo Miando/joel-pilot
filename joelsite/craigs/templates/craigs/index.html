@@ -14,7 +14,7 @@
 {% for option in options %}
 <div class="card ">
   <div class="card-header">
-    {{option.job_name}}
+      <a href="{% url 'craigs:last_items' option.id %}" >{{option.job_name}}</a>
   </div>
   <div class="card-block">
     <h4 class="card-title">{{option.category}}</h4>
@@ -27,8 +27,6 @@
           {% csrf_token %}
           <input name="is_active" {% if option.is_active %}checked=""{% endif %} type="checkbox">Active job
           <input name="pk" hidden="" type="text" value="{{option.pk}}">
-
-
 
     <input class="btn btn-primary" type="submit" value="Save">
     </form>

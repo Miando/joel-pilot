@@ -3,14 +3,6 @@ from django.contrib.auth.models import Permission, User
 from django.utils import timezone
 
 
-class ScrapedInfo(models.Model):
-    user = models.ForeignKey(User, default=1)
-    title = models.CharField(max_length=250)
-
-    def __str__(self):
-        return self.title
-
-
 class PersonOptions(models.Model):
     is_active = models.BooleanField(default=True)
     user = models.ForeignKey(User, default=1)
@@ -18,13 +10,23 @@ class PersonOptions(models.Model):
     city = models.CharField(max_length=250)
     category = models.CharField(max_length=250)
     subcategory = models.CharField(max_length=250)
-    options = models.CharField(max_length=1000)
+    options = models.CharField(max_length=1000, blank=True)
     keyword = models.CharField(max_length=250, blank=True)
     stop_word = models.CharField(max_length=250, blank=True)
     time_update = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.job_name
+
+
+class ScrapedInfo(models.Model):
+    user = models.ForeignKey(User, default=1)
+    title = models.CharField(max_length=250)
+    url = models.CharField(max_length=250)
+    job_name = models.ForeignKey(PersonOptions, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title
 
 
 class CityOptions(models.Model):

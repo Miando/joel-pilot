@@ -14,10 +14,12 @@ class Command(BaseCommand):
                 user_email = task.user.email
                 params = {'project':'craiglist','spider':'craigs1'}
                 params['city'] = task.city
+                params['pk'] = task.pk
                 params['user_email'] = user_email
                 params['category'] = task.category
                 params['subcategory'] = task.subcategory
                 params['options'] = task.options
+                params['job_name'] = task.job_name
                 options = task.options
                 # params['time_update'] = task.time_update
                 keyword = task.keyword

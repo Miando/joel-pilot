@@ -1,10 +1,27 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http.response import HttpResponse
-from .models import PersonOptions, CityOptions, SubCategoryOptions, AdditionalOptions
-from .forms import OptionsForm, NewTask, UserForm, IsActiveForm
+from .models import PersonOptions, CityOptions, SubCategoryOptions, AdditionalOptions, ScrapedInfo
+from .forms import OptionsForm, NewTask, UserForm, IsActiveForm, EditOption
 from django.utils import timezone
 from collections import defaultdict
 from django.contrib.auth import authenticate, login, logout
+
+
+def last_items(request, pk):
+    if not request.user.is_authenticated():
+        return render(request, 'craigs/login.html')
+    else:
+        try:
+            scraped_ids = []
+            for options in PersonOptions.objects.filter(user=request.user):
+                for scraped in options.scrapedinfo_set.all():
+                    scraped_ids.append(scraped.pk)
+            last_items = ScrapedInfo.objects.filter(pk__in=scraped_ids)
+            print(last_items)
+
+        except PersonOptions.DoesNotExist:
+            last_items = []
+        return render(request, 'craigs/last_items.html', {'last_items': last_items})
 
 
 def login_user(request):
@@ -76,6 +93,23 @@ def home_page(request):
     return render(request, 'craigs/index.html', {'options': options, 'form': form})
 
 
+def edit_option(request):
+    # if not request.user.is_authenticated():
+    #     return render(request, 'craigs/login.html')
+    if request.method == "POST":
+        form = EditOption(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            p = PersonOptions.objects.get(pk=data['pk'])
+            p.is_active = data['is_active']
+            p.save()
+            # for (question, answer) in form.extra_answers():
+            #     print(question, answer)
+            print('================')
+            print(form.cleaned_data)
+            return redirect('/')
+
+
 def task_edit(request, pk):
     if not request.user.is_authenticated():
         return render(request, 'craigs/login.html')
@@ -95,8 +129,11 @@ def task_edit(request, pk):
     return render(request, 'craigs/task_edit.html', {'form': form})
 
 
-def settings(request, job_name_id):
-    return HttpResponse('<html>'+str(job_name_id)+'</html>')
+def task_delete(request, pk):
+    print(pk)
+    option = PersonOptions.objects.get(pk=pk)
+    option.delete()
+    return redirect('/')
 
 
 def create_task(request):
@@ -138,7 +175,7 @@ def create_task(request):
             p = PersonOptions(
                 user=request.user,
                 options=options,
-                is_active=data['is_active'],
+                is_active=True,#data['is_active'],
                 city=data['village'],
                 job_name=data['job_name'],
                 category=data['category'],

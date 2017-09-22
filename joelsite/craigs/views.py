@@ -16,7 +16,7 @@ def last_items(request, pk):
             for options in PersonOptions.objects.filter(user=request.user, pk=pk):
                 for scraped in options.scrapedinfo_set.all():
                     scraped_ids.append(scraped.pk)
-            last_items = ScrapedInfo.objects.filter(pk__in=scraped_ids)[::-1]
+            last_items = ScrapedInfo.objects.filter(pk__in=scraped_ids)
             print(last_items)
 
         except PersonOptions.DoesNotExist:

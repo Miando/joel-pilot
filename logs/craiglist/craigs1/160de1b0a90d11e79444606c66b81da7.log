@@ -1,0 +1,64 @@
+2017-10-04 14:05:34 [scrapy.utils.log] INFO: Scrapy 1.4.0 started (bot: craiglist)
+2017-10-04 14:05:34 [scrapy.utils.log] INFO: Overridden settings: {'ROBOTSTXT_OBEY': True, 'BOT_NAME': 'craiglist', 'LOG_FILE': 'logs/craiglist/craigs1/160de1b0a90d11e79444606c66b81da7.log', 'SPIDER_MODULES': ['craiglist.spiders'], 'NEWSPIDER_MODULE': 'craiglist.spiders'}
+2017-10-04 14:05:34 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.corestats.CoreStats']
+2017-10-04 14:05:34 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy_crawlera.CrawleraMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2017-10-04 14:05:34 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2017-10-04 14:05:34 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2017-10-04 14:05:34 [scrapy.core.engine] INFO: Spider opened
+2017-10-04 14:05:34 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2017-10-04 14:05:34 [root] INFO: Using crawlera at http://proxy.crawlera.com:8010?noconnect (user: 263068a...)
+2017-10-04 14:05:34 [root] INFO: CrawleraMiddleware: disabling download delays on Scrapy side to optimize delays introduced by Crawlera. To avoid this behaviour you can use the CRAWLERA_PRESERVE_DELAY setting but keep in mind that this may slow down the crawl significantly
+2017-10-04 14:05:34 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023
+2017-10-04 14:05:53 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/robots.txt> (referer: None)
+2017-10-04 14:05:55 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/search/jjj> (referer: None)
+2017-10-04 14:05:55 [scrapy.core.scraper] DEBUG: Scraped from <200 https://desmoines.craigslist.org/search/jjj>
+{'link': 'Truck Driver Careers - Multiple Opportunities and Route Types'}
+2017-10-04 14:05:55 [scrapy.core.engine] INFO: Closing spider (finished)
+2017-10-04 14:05:55 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'crawlera/request': 2,
+ 'crawlera/request/method/GET': 2,
+ 'crawlera/response': 2,
+ 'crawlera/response/status/200': 2,
+ 'downloader/request_bytes': 756,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 22924,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 2,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2017, 10, 4, 14, 5, 55, 815081),
+ 'item_scraped_count': 1,
+ 'log_count/DEBUG': 4,
+ 'log_count/INFO': 9,
+ 'memusage/max': 70606848,
+ 'memusage/startup': 70606848,
+ 'response_received_count': 2,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2017, 10, 4, 14, 5, 34, 740439)}
+2017-10-04 14:05:55 [scrapy.core.engine] INFO: Spider closed (finished)

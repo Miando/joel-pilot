@@ -28,12 +28,13 @@ class Command(BaseCommand):
                 else:
                     options = "?" + options[1:]
                 params['keyword'] = keyword
-
                 params['url_task1'] = task.city[:-1] + task.subcategory + keyword + options
-
+                if task.url:
+                    params['url_task1'] = task.url
                 try:
                     params['stop_word'] = task.stop_word
                 except:
                     pass
-                print (params)
+                print(params)
                 response = requests.post(url, data=params)
+                print(response.status_code)

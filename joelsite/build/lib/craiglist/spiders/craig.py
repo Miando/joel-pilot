@@ -11,7 +11,7 @@ from joelsite import settings
 os.environ['DJANGO_SETTINGS_MODULE'] = 'joelsite.settings'
 import django
 django.setup()
-
+from inline_requests import inline_requests
 from craigs.models import PersonOptions
 from craigs.models import ScrapedInfo
 from django.core.mail import send_mail
@@ -33,7 +33,9 @@ class MySpider(scrapy.Spider):
         self.start_urls.append(kwargs.get('url_task1', ''))
         self.pk = kwargs.get('pk', '')
         self.job_name = kwargs.get('job_name', '')
+        self.stop_word = kwargs.get('stop_word', '')
 
+    @inline_requests
     def parse(self, response):
         print(self.start_urls)
         p = PersonOptions.objects.get(pk=self.pk)#PersonItem.django_model.objects.get(pk=self.pk)
@@ -50,25 +52,37 @@ class MySpider(scrapy.Spider):
                 title = li.xpath('.//a[@class="result-title hdrlnk"]/text()').extract_first()
                 new.append([url, title])
                 new_time.append(time_obj)
-                p.scrapedinfo_set.create(
-                    title=title,
-                    url=url
-                )
-        message = ''
         if new:
+            for ne in new:
+                response_item = yield scrapy.Request(
+                    url=ne[0]
+                )
+                text = response_item.xpath('//*[id="postingbody"]').extract_first()
+                stop = False
+                if self.stop_word:
+                    for word in self.stop_word.split():
+                        if word in str(text):
+                            new.remove(ne)
+                            stop = True
+                            break
+                if stop is False:
+                    p.scrapedinfo_set.create(
+                        title=ne[1],
+                        url=ne[0]
+                    )
+            message = ''
             for m in new:
                 message = message + '<br>' + '<a href="{}">{}</a>'.format(m[0], m[1]) + '<br>'
-
-                send_mail(
-                    'New items for: {}'.format(self.job_name),
-                    '',
-                    'mykhailo.kuznietsov@gmail.com',
-                    [p.user.email],
-                    fail_silently=False,
-                    html_message=message
-                )
                 p.time_update = max(new_time)
                 p.save()
+            send_mail(
+                'New items for: {}'.format(self.job_name),
+                '',
+                'mykhailo.kuznietsov@gmail.com',
+                [p.user.email],
+                fail_silently=False,
+                html_message=message
+            )
         item = {}
         # i.city = "dallas"
         # i.save()

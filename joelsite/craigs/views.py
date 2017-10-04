@@ -74,18 +74,18 @@ def logout_user(request):
 def home_page(request):
     if not request.user.is_authenticated():
         return render(request, 'craigs/login.html')
-    if request.method == "POST":
-        form = IsActiveForm(request.POST)
-
-        if form.is_valid():
-
-            get_object_or_404(PersonOptions, pk=pk)
-
-            task = form.save(commit=False)
-            task.is_active = request.is_active
-            task.time_update = timezone.now()
-            task.save()
-            return redirect('/')
+    # if request.method == "POST":
+    #     form = IsActiveForm(request.POST)
+    #
+    #     if form.is_valid():
+    #
+    #         get_object_or_404(PersonOptions, pk=pk)
+    #
+    #         task = form.save(commit=False)
+    #         task.is_active = request.is_active
+    #         task.time_update = timezone.now()
+    #         task.save()
+    #         return redirect('/')
     else:
         form = IsActiveForm()
 
@@ -139,7 +139,7 @@ def task_delete(request, pk):
 def create_task(request):
     if not request.user.is_authenticated():
         return render(request, 'craigs/login.html')
-    cities = CityOptions.objects.order_by('city')
+    cities = CityOptions.objects.values()
     subcategories = SubCategoryOptions.objects.values()
     options = AdditionalOptions.objects.values()
     o = defaultdict(list)
@@ -154,8 +154,14 @@ def create_task(request):
             if {s['subcategory_for_frontend']: s['subcategory']} not in d[s['category']]:
                 d[s['category']].append({s['subcategory_for_frontend']: s['subcategory']})
     categories = dict(d)
+    cc = defaultdict(list)
+    for c in cities:
+        for k, v in c.items():
+            if {c['city_for_frontend']: c['city']} not in cc[c['state']]:
+                cc[c['state']].append({c['city_for_frontend']: c['city']})
+    cities = dict(cc)
     # print('================')
-    # print(categories)
+    print(cities)
     # print('================')
     # extra_questions = get_questions(request)
     if request.method == "POST":
@@ -164,6 +170,7 @@ def create_task(request):
             # for (question, answer) in form.extra_answers():
             #     print(question, answer)
             print('================')
+            print(form)
             print(form.cleaned_data)
             data = form.cleaned_data
             options = ''
@@ -176,11 +183,13 @@ def create_task(request):
                 user=request.user,
                 options=options,
                 is_active=True,#data['is_active'],
-                city=data['village'],
-                job_name=data['job_name'],
-                category=data['category'],
-                subcategory=data['subcategory'],
-                keyword=data['keyword'],
+                city=data.get('village', ''),
+                job_name=data.get('job_name', ''),
+                category=data.get('category', ''),
+                subcategory=data.get('subcategory', ''),
+                keyword=data.get('keyword', ''),
+                stop_word=data.get('stop_word', ''),
+                url=data.get('url1', ''),
             )
             p.save()
         # task = form.save(commit=False)

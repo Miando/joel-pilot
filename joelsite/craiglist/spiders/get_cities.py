@@ -20,18 +20,21 @@ class MySpider(scrapy.Spider):
     name = "get_cities"
     start_urls = ['https://www.craigslist.org/about/sites']
     custom_settings = {
-        'DOWNLOAD_DELAY': 1
+        'DOWNLOAD_DELAY': .1
     }
     unique = []
 
     def parse(self, response):
-        for i, div in enumerate(response.xpath('//section/div[@class="colmask"][1]//li/a')):
+        for i, div in enumerate(response.xpath('(//section/div[@class="colmask"])[1]/div/ul/li/a')):
             city = div.xpath('./text()').extract_first()
             city_for_frontend = div.xpath('./@href').extract_first()
+            c = div.xpath('count(./../../preceding-sibling::*)').extract_first()
+            state = div.xpath('./../../../*[{}]/text()'.format(c)).extract_first()
             s = CityOptions(
                 city=city,
                 city_for_frontend=city_for_frontend,
+                state=state,
                )
             s.save()
-            print (i)
+            print (state)
 

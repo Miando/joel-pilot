@@ -1,0 +1,182 @@
+2017-10-04 14:31:03 [scrapy.utils.log] INFO: Scrapy 1.4.0 started (bot: craiglist)
+2017-10-04 14:31:03 [scrapy.utils.log] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'craiglist.spiders', 'ROBOTSTXT_OBEY': True, 'SPIDER_MODULES': ['craiglist.spiders'], 'BOT_NAME': 'craiglist', 'LOG_FILE': 'logs/craiglist/craigs1/a4b12f3ca91011e79444606c66b81da7.log'}
+2017-10-04 14:31:03 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.telnet.TelnetConsole']
+2017-10-04 14:31:03 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy_crawlera.CrawleraMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2017-10-04 14:31:03 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2017-10-04 14:31:03 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2017-10-04 14:31:03 [scrapy.core.engine] INFO: Spider opened
+2017-10-04 14:31:03 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2017-10-04 14:31:03 [root] INFO: Using crawlera at http://proxy.crawlera.com:8010?noconnect (user: 263068a...)
+2017-10-04 14:31:03 [root] INFO: CrawleraMiddleware: disabling download delays on Scrapy side to optimize delays introduced by Crawlera. To avoid this behaviour you can use the CRAWLERA_PRESERVE_DELAY setting but keep in mind that this may slow down the crawl significantly
+2017-10-04 14:31:03 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023
+2017-10-04 14:31:04 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/robots.txt> (referer: None)
+2017-10-04 14:31:06 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/search/jjj> (referer: None)
+2017-10-04 14:31:07 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trp/d/44-cpm-plus-1000-transition/6332244829.html> (referer: https://desmoines.craigslist.org/search/jjj)
+2017-10-04 14:31:09 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trp/d/truck-driver-average-pay-of/6332244406.html> (referer: https://desmoines.craigslist.org/trp/d/44-cpm-plus-1000-transition/6332244829.html)
+2017-10-04 14:31:10 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trp/d/truck-driver-careers-multiple/6332225738.html> (referer: https://desmoines.craigslist.org/trp/d/truck-driver-average-pay-of/6332244406.html)
+2017-10-04 14:31:11 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/lab/d/aintenance-technician-500/6332219980.html> (referer: https://desmoines.craigslist.org/trp/d/truck-driver-careers-multiple/6332225738.html)
+2017-10-04 14:31:16 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/rej/d/aintenance-technician-500/6332219982.html> (referer: https://desmoines.craigslist.org/lab/d/aintenance-technician-500/6332219980.html)
+2017-10-04 14:31:17 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trd/d/aintenance-technician-500/6332219984.html> (referer: https://desmoines.craigslist.org/rej/d/aintenance-technician-500/6332219982.html)
+2017-10-04 14:31:20 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/sad/d/rf-mainline-cable-splicers/6332213738.html> (referer: https://desmoines.craigslist.org/trd/d/aintenance-technician-500/6332219984.html)
+2017-10-04 14:31:21 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trp/d/local-class-shag-shuttle/6332203858.html> (referer: https://desmoines.craigslist.org/sad/d/rf-mainline-cable-splicers/6332213738.html)
+2017-10-04 14:31:23 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/lab/d/furniture-installer/6332200285.html> (referer: https://desmoines.craigslist.org/trp/d/local-class-shag-shuttle/6332203858.html)
+2017-10-04 14:31:24 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trp/d/local-drivers-needed-grimes/6332169782.html> (referer: https://desmoines.craigslist.org/lab/d/furniture-installer/6332200285.html)
+2017-10-04 14:31:25 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trp/d/dedicated-team-drivers-needed/6332169188.html> (referer: https://desmoines.craigslist.org/trp/d/local-drivers-needed-grimes/6332169782.html)
+2017-10-04 14:31:26 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trp/d/part-time-driver-needed/6332168712.html> (referer: https://desmoines.craigslist.org/trp/d/dedicated-team-drivers-needed/6332169188.html)
+2017-10-04 14:31:31 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/lab/d/service-technician-immediate/6332161537.html> (referer: https://desmoines.craigslist.org/trp/d/part-time-driver-needed/6332168712.html)
+2017-10-04 14:31:34 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/ofc/d/office-clerk-dispatcher-full/6332159713.html> (referer: https://desmoines.craigslist.org/lab/d/service-technician-immediate/6332161537.html)
+2017-10-04 14:31:35 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/fbh/d/busser-full-time-or-part-time/6332145894.html> (referer: https://desmoines.craigslist.org/ofc/d/office-clerk-dispatcher-full/6332159713.html)
+2017-10-04 14:31:36 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trp/d/ready-to-run-weve-got-the/6332082480.html> (referer: https://desmoines.craigslist.org/fbh/d/busser-full-time-or-part-time/6332145894.html)
+2017-10-04 14:31:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trp/d/new-dedicated-home-weekly-10k/6332056921.html> (referer: https://desmoines.craigslist.org/trp/d/ready-to-run-weve-got-the/6332082480.html)
+2017-10-04 14:31:40 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/sec/d/guardshack-security-officer/6331825551.html> (referer: https://desmoines.craigslist.org/trp/d/new-dedicated-home-weekly-10k/6332056921.html)
+2017-10-04 14:31:41 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/fbh/d/great-pay-sarpinos-pizzeria/6331760242.html> (referer: https://desmoines.craigslist.org/sec/d/guardshack-security-officer/6331825551.html)
+2017-10-04 14:31:43 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/lab/d/trabajo-en-construcion/6331667287.html> (referer: https://desmoines.craigslist.org/fbh/d/great-pay-sarpinos-pizzeria/6331760242.html)
+2017-10-04 14:31:51 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trp/d/ask-us-about-our-sign-on/6331581879.html> (referer: https://desmoines.craigslist.org/lab/d/trabajo-en-construcion/6331667287.html)
+2017-10-04 14:31:52 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/npo/d/staff-positions-now-available/6331576412.html> (referer: https://desmoines.craigslist.org/trp/d/ask-us-about-our-sign-on/6331581879.html)
+2017-10-04 14:31:54 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/spa/d/beauty-advisor-target-beauty/6331575191.html> (referer: https://desmoines.craigslist.org/npo/d/staff-positions-now-available/6331576412.html)
+2017-10-04 14:31:55 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/ofc/d/customer-service-office/6331556332.html> (referer: https://desmoines.craigslist.org/spa/d/beauty-advisor-target-beauty/6331575191.html)
+2017-10-04 14:31:56 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/csr/d/customer-service-office/6331556333.html> (referer: https://desmoines.craigslist.org/ofc/d/customer-service-office/6331556332.html)
+2017-10-04 14:31:57 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/sls/d/vitamix-sales-rep-base/6331527873.html> (referer: https://desmoines.craigslist.org/csr/d/customer-service-office/6331556333.html)
+2017-10-04 14:32:03 [scrapy.extensions.logstats] INFO: Crawled 28 pages (at 28 pages/min), scraped 0 items (at 0 items/min)
+2017-10-04 14:32:19 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/sls/d/vitamix-sales-rep-base/6331517812.html> (referer: https://desmoines.craigslist.org/sls/d/vitamix-sales-rep-base/6331527873.html)
+2017-10-04 14:32:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/hea/d/dental-assistant/6331491769.html> (referer: https://desmoines.craigslist.org/sls/d/vitamix-sales-rep-base/6331517812.html)
+2017-10-04 14:32:30 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/fbh/d/line-cook/6331484453.html> (referer: https://desmoines.craigslist.org/hea/d/dental-assistant/6331491769.html)
+2017-10-04 14:32:31 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trp/d/5000-sign-onweekly-only-6/6331474879.html> (referer: https://desmoines.craigslist.org/fbh/d/line-cook/6331484453.html)
+2017-10-04 14:32:33 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trd/d/vac-truck-operator/6331447275.html> (referer: https://desmoines.craigslist.org/trp/d/5000-sign-onweekly-only-6/6331474879.html)
+2017-10-04 14:32:34 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/fbh/d/cooks-pizza-makers/6331434929.html> (referer: https://desmoines.craigslist.org/trd/d/vac-truck-operator/6331447275.html)
+2017-10-04 14:32:36 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/lab/d/do-you-enjoy-helping-people/6331410706.html> (referer: https://desmoines.craigslist.org/fbh/d/cooks-pizza-makers/6331434929.html)
+2017-10-04 14:32:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/fbh/d/part-time-server/6331410311.html> (referer: https://desmoines.craigslist.org/lab/d/do-you-enjoy-helping-people/6331410706.html)
+2017-10-04 14:32:40 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/fbh/d/no-more-weekends-become-house/6331405753.html> (referer: https://desmoines.craigslist.org/fbh/d/part-time-server/6331410311.html)
+2017-10-04 14:32:47 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/fbh/d/part-time-bartender/6331404791.html> (referer: https://desmoines.craigslist.org/fbh/d/no-more-weekends-become-house/6331405753.html)
+2017-10-04 14:32:51 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/lab/d/housekeeper-needed/6331396080.html> (referer: https://desmoines.craigslist.org/fbh/d/part-time-bartender/6331404791.html)
+2017-10-04 14:32:51 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/hea/d/housekeeper-needed/6331396082.html> (referer: https://desmoines.craigslist.org/lab/d/housekeeper-needed/6331396080.html)
+2017-10-04 14:32:54 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/etc/d/surrogates-needed-generous/6331371989.html> (referer: https://desmoines.craigslist.org/hea/d/housekeeper-needed/6331396082.html)
+2017-10-04 14:32:55 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/hea/d/rns-lpns-and-cnas-flexible/6331368045.html> (referer: https://desmoines.craigslist.org/etc/d/surrogates-needed-generous/6331371989.html)
+2017-10-04 14:32:56 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/sls/d/lucrative-high-ticket-sales/6331353525.html> (referer: https://desmoines.craigslist.org/hea/d/rns-lpns-and-cnas-flexible/6331368045.html)
+2017-10-04 14:32:57 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/ofc/d/senior-administrative/6331347151.html> (referer: https://desmoines.craigslist.org/sls/d/lucrative-high-ticket-sales/6331353525.html)
+2017-10-04 14:32:58 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trp/d/iowa-drivers-cdl-class-over/6331335573.html> (referer: https://desmoines.craigslist.org/ofc/d/senior-administrative/6331347151.html)
+2017-10-04 14:33:00 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/mnu/d/machine-operator/6331330702.html> (referer: https://desmoines.craigslist.org/trp/d/iowa-drivers-cdl-class-over/6331335573.html)
+2017-10-04 14:33:03 [scrapy.extensions.logstats] INFO: Crawled 46 pages (at 18 pages/min), scraped 0 items (at 0 items/min)
+2017-10-04 14:33:08 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/sls/d/executive-sales-consultant/6331306115.html> (referer: https://desmoines.craigslist.org/mnu/d/machine-operator/6331330702.html)
+2017-10-04 14:33:10 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/lab/d/cargo-handler-dock-worker/6331281186.html> (referer: https://desmoines.craigslist.org/sls/d/executive-sales-consultant/6331306115.html)
+2017-10-04 14:33:12 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trd/d/multiple-skilled-trade/6331278556.html> (referer: https://desmoines.craigslist.org/lab/d/cargo-handler-dock-worker/6331281186.html)
+2017-10-04 14:33:13 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/acc/d/bankruptcy-specialist/6331274064.html> (referer: https://desmoines.craigslist.org/trd/d/multiple-skilled-trade/6331278556.html)
+2017-10-04 14:33:15 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/lab/d/subcontractor-snow-removal/6331271349.html> (referer: https://desmoines.craigslist.org/acc/d/bankruptcy-specialist/6331274064.html)
+2017-10-04 14:33:34 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trd/d/home-inspection-training/6331266204.html> (referer: https://desmoines.craigslist.org/lab/d/subcontractor-snow-removal/6331271349.html)
+2017-10-04 14:33:35 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trd/d/laborer-underground/6331266108.html> (referer: https://desmoines.craigslist.org/trd/d/home-inspection-training/6331266204.html)
+2017-10-04 14:33:46 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/bus/d/home-inspection-training/6331261754.html> (referer: https://desmoines.craigslist.org/trd/d/laborer-underground/6331266108.html)
+2017-10-04 14:33:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/lab/d/home-inspection-training/6331260655.html> (referer: https://desmoines.craigslist.org/bus/d/home-inspection-training/6331261754.html)
+2017-10-04 14:33:49 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/rej/d/home-inspection-training/6331259414.html> (referer: https://desmoines.craigslist.org/lab/d/home-inspection-training/6331260655.html)
+2017-10-04 14:33:50 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/lab/d/body-shop-technician-helper/6331253079.html> (referer: https://desmoines.craigslist.org/rej/d/home-inspection-training/6331259414.html)
+2017-10-04 14:33:51 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trp/d/class-cdl-drivers/6331241335.html> (referer: https://desmoines.craigslist.org/lab/d/body-shop-technician-helper/6331253079.html)
+2017-10-04 14:33:53 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/sls/d/insurance-benefits-and/6331236344.html> (referer: https://desmoines.craigslist.org/trp/d/class-cdl-drivers/6331241335.html)
+2017-10-04 14:33:54 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trd/d/maintenance-technician/6331231224.html> (referer: https://desmoines.craigslist.org/sls/d/insurance-benefits-and/6331236344.html)
+2017-10-04 14:33:55 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trp/d/cdl-class-hazmat/6331220779.html> (referer: https://desmoines.craigslist.org/trd/d/maintenance-technician/6331231224.html)
+2017-10-04 14:33:57 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/hea/d/spirit-cares-now-hiring/6331205012.html> (referer: https://desmoines.craigslist.org/trp/d/cdl-class-hazmat/6331220779.html)
+2017-10-04 14:34:03 [scrapy.extensions.logstats] INFO: Crawled 62 pages (at 16 pages/min), scraped 0 items (at 0 items/min)
+2017-10-04 14:34:13 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/fbh/d/lead-chef-daytime-hours/6331196365.html> (referer: https://desmoines.craigslist.org/hea/d/spirit-cares-now-hiring/6331205012.html)
+2017-10-04 14:34:13 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trp/d/cdl-class-job-offer/6331194431.html> (referer: https://desmoines.craigslist.org/fbh/d/lead-chef-daytime-hours/6331196365.html)
+2017-10-04 14:34:14 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trp/d/entry-level-service/6331176097.html> (referer: https://desmoines.craigslist.org/trp/d/cdl-class-job-offer/6331194431.html)
+2017-10-04 14:34:16 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/fbh/d/cookiez-and-zolls/6331173677.html> (referer: https://desmoines.craigslist.org/trp/d/entry-level-service/6331176097.html)
+2017-10-04 14:34:18 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trp/d/cdl-class-company-drivers/6331173249.html> (referer: https://desmoines.craigslist.org/fbh/d/cookiez-and-zolls/6331173677.html)
+2017-10-04 14:34:19 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/hea/d/veterinary-technician-or/6331172019.html> (referer: https://desmoines.craigslist.org/trp/d/cdl-class-company-drivers/6331173249.html)
+2017-10-04 14:34:20 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/lab/d/loader-unloader/6331166987.html> (referer: https://desmoines.craigslist.org/hea/d/veterinary-technician-or/6331172019.html)
+2017-10-04 14:34:21 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/fbh/d/kitchen-manager/6331160518.html> (referer: https://desmoines.craigslist.org/lab/d/loader-unloader/6331166987.html)
+2017-10-04 14:34:23 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/spa/d/scissors-scotch-is-hiring/6331146362.html> (referer: https://desmoines.craigslist.org/fbh/d/kitchen-manager/6331160518.html)
+2017-10-04 14:34:24 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trd/d/lead-residential-hvac/6331141859.html> (referer: https://desmoines.craigslist.org/spa/d/scissors-scotch-is-hiring/6331146362.html)
+2017-10-04 14:34:25 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/sls/d/life-insurance-tele-sales/6331139688.html> (referer: https://desmoines.craigslist.org/trd/d/lead-residential-hvac/6331141859.html)
+2017-10-04 14:34:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trd/d/concrete-pump-operator/6331122217.html> (referer: https://desmoines.craigslist.org/sls/d/life-insurance-tele-sales/6331139688.html)
+2017-10-04 14:34:28 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trp/d/concrete-pump-operator/6331122219.html> (referer: https://desmoines.craigslist.org/trd/d/concrete-pump-operator/6331122217.html)
+2017-10-04 14:34:42 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/spa/d/full-time-receptionist/6331117723.html> (referer: https://desmoines.craigslist.org/trp/d/concrete-pump-operator/6331122219.html)
+2017-10-04 14:34:46 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/lab/d/production-labor/6331112541.html> (referer: https://desmoines.craigslist.org/spa/d/full-time-receptionist/6331117723.html)
+2017-10-04 14:34:49 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trp/d/experienced-cdl-truck-driver/6331076469.html> (referer: https://desmoines.craigslist.org/lab/d/production-labor/6331112541.html)
+2017-10-04 14:34:52 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trp/d/regional-intermodal-driver/6331105843.html> (referer: https://desmoines.craigslist.org/trp/d/experienced-cdl-truck-driver/6331076469.html)
+2017-10-04 14:34:53 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/hea/d/dental-assistant/6331098070.html> (referer: https://desmoines.craigslist.org/trp/d/regional-intermodal-driver/6331105843.html)
+2017-10-04 14:34:55 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/lab/d/service-technician-t-benefits/6331081599.html> (referer: https://desmoines.craigslist.org/hea/d/dental-assistant/6331098070.html)
+2017-10-04 14:34:57 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trd/d/service-technician-t-benefits/6331081606.html> (referer: https://desmoines.craigslist.org/lab/d/service-technician-t-benefits/6331081599.html)
+2017-10-04 14:34:58 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/bus/d/logistics-new-business/6331079993.html> (referer: https://desmoines.craigslist.org/trd/d/service-technician-t-benefits/6331081606.html)
+2017-10-04 14:35:03 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/csr/d/account-exec-role-in-des/6331078334.html> (referer: https://desmoines.craigslist.org/bus/d/logistics-new-business/6331079993.html)
+2017-10-04 14:35:03 [scrapy.extensions.logstats] INFO: Crawled 84 pages (at 22 pages/min), scraped 0 items (at 0 items/min)
+2017-10-04 14:35:04 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/tch/d/call-center-reps-inside-sales/6331077174.html> (referer: https://desmoines.craigslist.org/csr/d/account-exec-role-in-des/6331078334.html)
+2017-10-04 14:35:05 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/sls/d/transportation-account/6331075400.html> (referer: https://desmoines.craigslist.org/tch/d/call-center-reps-inside-sales/6331077174.html)
+2017-10-04 14:35:07 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trp/d/local-home-daily-cdl-class/6331051169.html> (referer: https://desmoines.craigslist.org/sls/d/transportation-account/6331075400.html)
+2017-10-04 14:35:08 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trp/d/we-want-you-weekly-home-time/6331044553.html> (referer: https://desmoines.craigslist.org/trp/d/local-home-daily-cdl-class/6331051169.html)
+2017-10-04 14:35:10 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trp/d/owner-operators/6331025846.html> (referer: https://desmoines.craigslist.org/trp/d/we-want-you-weekly-home-time/6331044553.html)
+2017-10-04 14:35:11 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/lab/d/office-furniture-installer/6331021422.html> (referer: https://desmoines.craigslist.org/trp/d/owner-operators/6331025846.html)
+2017-10-04 14:35:13 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/lgl/d/associate-attorney/6331000608.html> (referer: https://desmoines.craigslist.org/lab/d/office-furniture-installer/6331021422.html)
+2017-10-04 14:35:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/hea/d/resident-assistant-wanted/6330994127.html> (referer: https://desmoines.craigslist.org/lgl/d/associate-attorney/6331000608.html)
+2017-10-04 14:35:30 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/lab/d/able-to-lift-25lbsstart/6330363922.html> (referer: https://desmoines.craigslist.org/hea/d/resident-assistant-wanted/6330994127.html)
+2017-10-04 14:35:31 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/csr/d/customer-service/6330366545.html> (referer: https://desmoines.craigslist.org/lab/d/able-to-lift-25lbsstart/6330363922.html)
+2017-10-04 14:35:32 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/lab/d/order-picker-2nd-shift/6330948402.html> (referer: https://desmoines.craigslist.org/csr/d/customer-service/6330366545.html)
+2017-10-04 14:35:34 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/lab/d/east-coastwest/6330947089.html> (referer: https://desmoines.craigslist.org/lab/d/order-picker-2nd-shift/6330948402.html)
+2017-10-04 14:35:36 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trp/d/cdl-class-or-contractor/6330935831.html> (referer: https://desmoines.craigslist.org/lab/d/east-coastwest/6330947089.html)
+2017-10-04 14:35:37 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/lab/d/recycling-sorter/6330933275.html> (referer: https://desmoines.craigslist.org/trp/d/cdl-class-or-contractor/6330935831.html)
+2017-10-04 14:35:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trp/d/fedex-cdl-linehaul-fill-time/6330926732.html> (referer: https://desmoines.craigslist.org/lab/d/recycling-sorter/6330933275.html)
+2017-10-04 14:35:40 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trp/d/owner-operators-dry-van/6330926566.html> (referer: https://desmoines.craigslist.org/trp/d/fedex-cdl-linehaul-fill-time/6330926732.html)
+2017-10-04 14:35:45 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trp/d/team-truck-driver-hiring-now/6330910349.html> (referer: https://desmoines.craigslist.org/trp/d/owner-operators-dry-van/6330926566.html)
+2017-10-04 14:35:46 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trp/d/regional-truck-driver-hiring/6330909778.html> (referer: https://desmoines.craigslist.org/trp/d/team-truck-driver-hiring-now/6330910349.html)
+2017-10-04 14:35:47 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trp/d/over-the-road-truck-driver/6330906029.html> (referer: https://desmoines.craigslist.org/trp/d/regional-truck-driver-hiring/6330909778.html)
+2017-10-04 14:36:01 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trp/d/eagle-express-lines-regional/6330899849.html> (referer: https://desmoines.craigslist.org/trp/d/over-the-road-truck-driver/6330906029.html)
+2017-10-04 14:36:02 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trp/d/hiring-owner-operatorsper/6330893907.html> (referer: https://desmoines.craigslist.org/trp/d/eagle-express-lines-regional/6330899849.html)
+2017-10-04 14:36:03 [scrapy.extensions.logstats] INFO: Crawled 105 pages (at 21 pages/min), scraped 0 items (at 0 items/min)
+2017-10-04 14:36:04 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/lab/d/we-need-yard-care-workers-up/6330881878.html> (referer: https://desmoines.craigslist.org/trp/d/hiring-owner-operatorsper/6330893907.html)
+2017-10-04 14:36:05 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trd/d/auto-body-person/6330880899.html> (referer: https://desmoines.craigslist.org/lab/d/we-need-yard-care-workers-up/6330881878.html)
+2017-10-04 14:36:22 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/fbh/d/servers-line-cooks-kitchen/6330871627.html> (referer: https://desmoines.craigslist.org/trd/d/auto-body-person/6330880899.html)
+2017-10-04 14:36:24 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trd/d/ia-licensed-electrician/6330868985.html> (referer: https://desmoines.craigslist.org/fbh/d/servers-line-cooks-kitchen/6330871627.html)
+2017-10-04 14:36:26 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trp/d/truck-driver-home-daily-2000/6330860754.html> (referer: https://desmoines.craigslist.org/trd/d/ia-licensed-electrician/6330868985.html)
+2017-10-04 14:36:28 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trp/d/warren-transportation-owner/6330861054.html> (referer: https://desmoines.craigslist.org/trp/d/truck-driver-home-daily-2000/6330860754.html)
+2017-10-04 14:36:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trd/d/3-locations-crewmen-needed/6330860960.html> (referer: https://desmoines.craigslist.org/trp/d/warren-transportation-owner/6330861054.html)
+2017-10-04 14:36:30 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/lab/d/construction-crewmen-needed/6330859419.html> (referer: https://desmoines.craigslist.org/trd/d/3-locations-crewmen-needed/6330860960.html)
+2017-10-04 14:36:31 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/trp/d/truck-driver-paid-train-to/6330859356.html> (referer: https://desmoines.craigslist.org/lab/d/construction-crewmen-needed/6330859419.html)
+2017-10-04 14:36:34 [scrapy.core.scraper] DEBUG: Scraped from <200 https://desmoines.craigslist.org/trp/d/truck-driver-paid-train-to/6330859356.html>
+{'link': '44 CPM PLUS $1000 TRANSITION PAY! BENEFITS!'}
+2017-10-04 14:36:34 [scrapy.core.engine] INFO: Closing spider (finished)
+2017-10-04 14:36:34 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'crawlera/request': 114,
+ 'crawlera/request/method/GET': 114,
+ 'crawlera/response': 114,
+ 'crawlera/response/status/200': 114,
+ 'downloader/request_bytes': 59152,
+ 'downloader/request_count': 114,
+ 'downloader/request_method_count/GET': 114,
+ 'downloader/response_bytes': 595199,
+ 'downloader/response_count': 114,
+ 'downloader/response_status_count/200': 114,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2017, 10, 4, 14, 36, 34, 347811),
+ 'item_scraped_count': 1,
+ 'log_count/DEBUG': 116,
+ 'log_count/INFO': 14,
+ 'memusage/max': 82989056,
+ 'memusage/startup': 70975488,
+ 'request_depth_max': 112,
+ 'response_received_count': 114,
+ 'scheduler/dequeued': 113,
+ 'scheduler/dequeued/memory': 113,
+ 'scheduler/enqueued': 113,
+ 'scheduler/enqueued/memory': 113,
+ 'start_time': datetime.datetime(2017, 10, 4, 14, 31, 3, 918323)}
+2017-10-04 14:36:34 [scrapy.core.engine] INFO: Spider closed (finished)

@@ -7,12 +7,13 @@ class PersonOptions(models.Model):
     is_active = models.BooleanField(default=True)
     user = models.ForeignKey(User, default=1)
     job_name = models.CharField(max_length=250)
-    city = models.CharField(max_length=250)
-    category = models.CharField(max_length=250)
-    subcategory = models.CharField(max_length=250)
+    city = models.CharField(max_length=250, blank=True)
+    category = models.CharField(max_length=250, blank=True)
+    subcategory = models.CharField(max_length=250, blank=True)
     options = models.CharField(max_length=1000, blank=True)
     keyword = models.CharField(max_length=250, blank=True)
     stop_word = models.CharField(max_length=250, blank=True)
+    url = models.CharField(max_length=1000, blank=True, default='')
     time_update = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
@@ -30,8 +31,9 @@ class ScrapedInfo(models.Model):
 
 
 class CityOptions(models.Model):
-    city = models.CharField(max_length=250, unique=True)
-    city_for_frontend = models.CharField(max_length=250, unique=True)
+    city = models.CharField(max_length=250)
+    state = models.CharField(max_length=250)
+    city_for_frontend = models.CharField(max_length=250)
 
     def __str__(self):
         return self.city_for_frontend

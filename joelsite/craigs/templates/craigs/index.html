@@ -21,6 +21,9 @@
       {% if not option.keyword %}
       <br>
       {% endif %}
+      {% if not option.category %}
+      <br>
+      {% endif %}
       <h6 class="card-subtitle mb-2 text-muted">{{option.keyword}}</h6>
       <small class="text-muted"><a href="{% url 'craigs:task_delete' option.id %}" class="card-link">Delete</a> </small>
       <form method="post" action="{%url 'craigs:edit_option' %}" >

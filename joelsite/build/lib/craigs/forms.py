@@ -30,10 +30,12 @@ class EditOption(forms.Form):
 
 
 class NewTask(forms.Form):
-    category = forms.CharField(max_length=100)
+    category = forms.CharField(max_length=100, required=False)
     village = forms.CharField(max_length=1000, required=False)
     subcategory = forms.CharField(max_length=100, required=False)
     keyword = forms.CharField(max_length=100, required=False)
+    stop_word = forms.CharField(max_length=100, required=False)
+    url1 = forms.CharField(max_length=1000, required=False)
     job_name = forms.CharField(max_length=100,)
     is_active = forms.BooleanField(initial=True, required=False)
     option1 = forms.CharField(max_length=1000, required=False)
@@ -86,7 +88,3 @@ class NewTask(forms.Form):
     option48 = forms.CharField(max_length=1000, required=False)
     option49 = forms.CharField(max_length=1000, required=False)
     option50 = forms.CharField(max_length=1000, required=False)
-
-    def __init__(self, *args, **kwargs):
-        super(NewTask, self).__init__(*args, **kwargs)
-        self.fields['job_name'].widget.attrs.update({'placeholder': "Text"})

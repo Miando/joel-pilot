@@ -52,9 +52,11 @@ ROBOTSTXT_OBEY = True
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'craiglist.middlewares.MyCustomDownloaderMiddleware': 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+    'scrapy_crawlera.CrawleraMiddleware': 610,
+}
+CRAWLERA_ENABLED = True
+CRAWLERA_APIKEY = '263068a28e3b43829eada46088d975aa'
 
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html

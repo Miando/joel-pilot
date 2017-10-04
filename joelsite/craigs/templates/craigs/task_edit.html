@@ -7,32 +7,54 @@
 
 
 <div id="middle">
+    <Select id="mainselector" style="width: 170px">
+        <option disabled="" selected="" value="">options</option>
+       <option value="without_url">without_url</option>
+       <option value="with_url">with_url</option>
+
+    </Select>
+
 <form  method="post" action="{%url 'craigs:create_task' %}" enctype="multipart/form-data">
         {% csrf_token %}
+    <input style="width: 170px" name="job_name" type="text" placeholder="name of task">
 
-<input style="width: 160px" name="job_name" type="text" placeholder="name of task">
+<div id="with_url" class="variants" style="display:none">
     <br>
 
- <select style="width: 160px" name="village">
-     <option disabled="" selected="" value="">city</option>
-     {% for city1 in cities %}
-        <option    value="{{city1.city_for_frontend}}">{{city1.city}}</option>
-     {% endfor %}
-</select>
+    <input style="width: 170px" name="url1" type="text" placeholder="link">
+    <br>
+    <input style="width: 170px" name="stop_word" type="text" placeholder="negative keywords">
+    <br>
+    <input class="btn btn-primary" type="submit" value="Create Task">
+
+</div>
+<div id="without_url" class="variants" style="display:none">
+    <br>
 
 
+
+
+
+    <select style="width: 170px" id="state" name="state">
+       <option disabled="" selected="" value="">state</option>
+                    </select>
+                    <br/>
+    <select style="width: 170px" id="cities" name="village">
+        <!--<option disabled="" selected="" value="">subcategory</option>-->
+    </select>
 <br>
-   <select style="width: 160px" id="firstmenu" name="category">
+    <br/>
+   <select style="width: 170px" id="firstmenu" name="category">
        <option disabled="" selected="" value="">category</option>
                     </select>
                     <br/>
-    <select style="width: 160px" id="secondmenu" name="subcategory">
+    <select style="width: 170px" id="secondmenu" name="subcategory">
         <!--<option disabled="" selected="" value="">subcategory</option>-->
     </select>
 <br>
 
     <!--<input name="keyword" type="text" placeholder="search keyword"/>-->
-   <input style="width: 160px" name="keyword" maxlength="250" id="id_keyword" type="text" placeholder="search keyword">
+   <input style="width: 170px" name="keyword" maxlength="250" id="id_keyword" type="text" placeholder="search keyword">
     <br>
 {% for key, value in additional_options.items %}
 <label class="{{key|replace_plus}}">
@@ -53,7 +75,10 @@
     <br>
 
     <input class="btn btn-primary" type="submit" value="Create Task">
+    </div>
 </form>
+
+
 <br>
 <br>
 <br>
@@ -117,15 +142,59 @@ var items = [
     {% endfor %}
 
 ];
+var items2 = [
+    {% for key, value in cities.items %}
+    {
+        name:'{{key}}',
+        value: '{{key}}',
+        subitems: [
+        {name: '---', value: '', disabled: '', selected: ''},
 
+            {% for val in value %}
+        {% for a,b in val.items %}
+            {name: '{{b}}', value: '{{a}}'},
+        {% endfor %}
+        {% endfor %}
 
+        ]
+    },
+    {% endfor %}
+
+];
+$(function(){
+    var temp = {};
+
+    $.each(items2, function(){
+        $("<option />")
+        .attr("value", this.value)
+        .attr('style', 'width: 170px')
+        .html(this.name)
+        .appendTo("#state");
+        temp[this.value] = this.subitems;
+    });
+
+    $("#state").change(function(){
+        var value = $(this).val();
+        var menu = $("#cities");
+
+        menu.empty();
+        $.each(temp[value], function(){
+            $("<option />")
+            .attr("value", this.value)
+            .attr('style', 'width: 170px')
+            .html(this.name)
+            .appendTo(menu);
+        });
+    }).change();
+
+});
 $(function(){
     var temp = {};
 
     $.each(items, function(){
         $("<option />")
         .attr("value", this.value)
-        .attr('style', 'width: 160px')
+        .attr('style', 'width: 170px')
         .html(this.name)
         .appendTo("#firstmenu");
         temp[this.value] = this.subitems;
@@ -139,7 +208,7 @@ $(function(){
         $.each(temp[value], function(){
             $("<option />")
             .attr("value", this.value)
-            .attr('style', 'width: 160px')
+            .attr('style', 'width: 170px')
             .html(this.name)
             .appendTo(menu);
         });
@@ -169,6 +238,13 @@ $("#secondmenu").change(function() {
     {% endfor %}
     }
 });
+
+$(function() {
+        $('#mainselector').change(function(){
+            $('.variants').hide();
+            $('#' + $(this).val()).show();
+        });
+    });
 <!--$(".answer").hide();-->
 <!--$(".coupon_question").click(function() {-->
     <!--if($(this).is(":checked")) {-->

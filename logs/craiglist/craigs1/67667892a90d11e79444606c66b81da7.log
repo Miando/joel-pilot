@@ -1,0 +1,80 @@
+2017-10-04 14:07:53 [scrapy.utils.log] INFO: Scrapy 1.4.0 started (bot: craiglist)
+2017-10-04 14:07:53 [scrapy.utils.log] INFO: Overridden settings: {'ROBOTSTXT_OBEY': True, 'SPIDER_MODULES': ['craiglist.spiders'], 'BOT_NAME': 'craiglist', 'LOG_FILE': 'logs/craiglist/craigs1/67667892a90d11e79444606c66b81da7.log', 'NEWSPIDER_MODULE': 'craiglist.spiders'}
+2017-10-04 14:07:53 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.corestats.CoreStats']
+2017-10-04 14:07:53 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy_crawlera.CrawleraMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2017-10-04 14:07:54 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2017-10-04 14:07:54 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2017-10-04 14:07:54 [scrapy.core.engine] INFO: Spider opened
+2017-10-04 14:07:54 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2017-10-04 14:07:54 [root] INFO: Using crawlera at http://proxy.crawlera.com:8010?noconnect (user: 263068a...)
+2017-10-04 14:07:54 [root] INFO: CrawleraMiddleware: disabling download delays on Scrapy side to optimize delays introduced by Crawlera. To avoid this behaviour you can use the CRAWLERA_PRESERVE_DELAY setting but keep in mind that this may slow down the crawl significantly
+2017-10-04 14:07:54 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023
+2017-10-04 14:07:55 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/robots.txt> (referer: None)
+2017-10-04 14:08:18 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://desmoines.craigslist.org/search/jjj> (referer: None)
+2017-10-04 14:08:19 [scrapy.core.scraper] ERROR: Spider error processing <GET https://desmoines.craigslist.org/search/jjj> (referer: None)
+Traceback (most recent call last):
+  File "/home/miando/upwork/joel/venv/lib/python3.5/site-packages/scrapy/utils/defer.py", line 102, in iter_errback
+    yield next(it)
+  File "/home/miando/upwork/joel/venv/lib/python3.5/site-packages/scrapy/spidermiddlewares/offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "/home/miando/upwork/joel/venv/lib/python3.5/site-packages/scrapy/spidermiddlewares/referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "/home/miando/upwork/joel/venv/lib/python3.5/site-packages/scrapy/spidermiddlewares/urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "/home/miando/upwork/joel/venv/lib/python3.5/site-packages/scrapy/spidermiddlewares/depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "/home/miando/upwork/joel/venv/lib/python3.5/site-packages/inline_requests/generator.py", line 51, in _unwindGenerator
+    ret = next(generator)
+  File "/tmp/craiglist-1507126059-hhpcyaze.egg/craiglist/spiders/craig.py", line 60, in parse
+    text = response_item.xpath('//*[id="postingbody"]').extract_first()
+AttributeError: 'Request' object has no attribute 'xpath'
+2017-10-04 14:08:19 [scrapy.core.engine] INFO: Closing spider (finished)
+2017-10-04 14:08:19 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'crawlera/request': 2,
+ 'crawlera/request/method/GET': 2,
+ 'crawlera/response': 2,
+ 'crawlera/response/status/200': 2,
+ 'downloader/request_bytes': 756,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 22922,
+ 'downloader/response_count': 2,
+ 'downloader/response_status_count/200': 2,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2017, 10, 4, 14, 8, 19, 128753),
+ 'log_count/DEBUG': 3,
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 9,
+ 'memusage/max': 71147520,
+ 'memusage/startup': 71147520,
+ 'response_received_count': 2,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'spider_exceptions/AttributeError': 1,
+ 'start_time': datetime.datetime(2017, 10, 4, 14, 7, 54, 51877)}
+2017-10-04 14:08:19 [scrapy.core.engine] INFO: Spider closed (finished)

@@ -11,7 +11,7 @@ urlpatterns = [
     url(r'^logout_user/$', views.logout_user, name='logout_user'),
     url(r'^register/$', views.register, name='register'),
     url(r'^new-task$', views.create_task, name='create_task'),
-    url(r'^new-task$', views.create_task, name='create_task'),
+    # url(r'^new-task$', views.create_task, name='create_task'),
     url(r'^(?P<pk>[0-9]+)/delete$', views.task_delete, name='task_delete'),
     url(r'^(?P<pk>[0-9]+)/last-items$', views.last_items, name='last_items'),
 ]

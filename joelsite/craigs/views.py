@@ -54,7 +54,7 @@ def register(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                return redirect('/')
+                return redirect('create_task')
 
     context = {
         "form": form,

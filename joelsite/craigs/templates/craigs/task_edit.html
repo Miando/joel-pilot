@@ -17,13 +17,16 @@
 <form  method="post" action="{%url 'craigs:create_task' %}" enctype="multipart/form-data">
         {% csrf_token %}
     <input style="width: 170px" name="job_name" type="text" placeholder="name of task">
+    <br>
+    <input style="width: 170px" name="stop_word" type="text" placeholder="negative keywords">
 
 <div id="with_url" class="variants" style="display:none">
     <br>
 
     <input style="width: 170px" name="url1" type="text" placeholder="link">
+    <!--<br>-->
+    <!--<input style="width: 170px" name="stop_word" type="text" placeholder="negative keywords">-->
     <br>
-    <input style="width: 170px" name="stop_word" type="text" placeholder="negative keywords">
     <br>
     <input class="btn btn-primary" type="submit" value="Create Task">
 

@@ -5,6 +5,7 @@ from .forms import OptionsForm, NewTask, UserForm, IsActiveForm, EditOption
 from django.utils import timezone
 from collections import defaultdict
 from django.contrib.auth import authenticate, login, logout
+from django.core.mail import send_mail
 
 
 def last_items(request, pk):
@@ -74,18 +75,18 @@ def logout_user(request):
 def home_page(request):
     if not request.user.is_authenticated():
         return render(request, 'craigs/login.html')
-    # if request.method == "POST":
-    #     form = IsActiveForm(request.POST)
-    #
-    #     if form.is_valid():
-    #
-    #         get_object_or_404(PersonOptions, pk=pk)
-    #
-    #         task = form.save(commit=False)
-    #         task.is_active = request.is_active
-    #         task.time_update = timezone.now()
-    #         task.save()
-    #         return redirect('/')
+    if request.method == "POST":
+        form = IsActiveForm(request.POST)
+
+        if form.is_valid():
+
+            get_object_or_404(PersonOptions, pk=pk)
+
+            task = form.save(commit=False)
+            task.is_active = request.is_active
+            task.time_update = timezone.now()
+            task.save()
+            return redirect('/')
     else:
         form = IsActiveForm()
 
@@ -94,8 +95,8 @@ def home_page(request):
 
 
 def edit_option(request):
-    # if not request.user.is_authenticated():
-    #     return render(request, 'craigs/login.html')
+    if not request.user.is_authenticated():
+        return render(request, 'craigs/login.html')
     if request.method == "POST":
         form = EditOption(request.POST)
         if form.is_valid():
@@ -161,14 +162,11 @@ def create_task(request):
                 cc[c['state']].append({c['city_for_frontend']: c['city']})
     cities = dict(cc)
     # print('================')
-    print(cities)
+    # print(cities)
     # print('================')
-    # extra_questions = get_questions(request)
     if request.method == "POST":
         form = NewTask(request.POST)
         if form.is_valid():
-            # for (question, answer) in form.extra_answers():
-            #     print(question, answer)
             print('================')
             print(form)
             print(form.cleaned_data)
@@ -178,7 +176,17 @@ def create_task(request):
                 if k[:3] == 'opt' and v != '':
                     options += options + '&' + v
             print (options)
-
+            if data.get('job_name', '') == '':
+                form = OptionsForm()
+                error_massege = 'Name of task is empty'
+                print('================')
+                return render(request, 'craigs/task_edit.html', {
+                    'form': form,
+                    'error_massege': error_massege,
+                    'cities': cities,
+                    'categories': categories,
+                    'additional_options': additional_options
+                })
             p = PersonOptions(
                 user=request.user,
                 options=options,
@@ -192,6 +200,27 @@ def create_task(request):
                 url=data.get('url1', ''),
             )
             p.save()
+            send_mail(
+                'Created new task: {}'.format(data.get('job_name', '')),
+                'Task "{}" is active'.format(data.get('job_name', '')),
+                'mykhailo.kuznietsov@gmail.com',
+                [p.user.email],
+                fail_silently=False,
+                # html_message=message
+            )
+            print("--------")
+        else:
+            form = OptionsForm()
+            error_massege = 'Name of task is empty'
+            print('================')
+            return render(request, 'craigs/task_edit.html', {
+                'form': form,
+                'error_massege': error_massege,
+                'cities': cities,
+                'categories': categories,
+                'additional_options': additional_options
+            })
+
         # task = form.save(commit=False)
         # task.user = request.user
         # task.time_update = timezone.now()

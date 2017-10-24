@@ -187,6 +187,17 @@ def create_task(request):
                     'categories': categories,
                     'additional_options': additional_options
                 })
+            if data.get('category', '') != '' and data.get('subcategory', '') == '':
+                form = OptionsForm()
+                error_massege = 'Please, choose an subcategory'
+                print('================')
+                return render(request, 'craigs/task_edit.html', {
+                    'form': form,
+                    'error_massege': error_massege,
+                    'cities': cities,
+                    'categories': categories,
+                    'additional_options': additional_options
+                })
             p = PersonOptions(
                 user=request.user,
                 options=options,

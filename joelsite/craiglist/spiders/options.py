@@ -20,7 +20,7 @@ class MySpider(scrapy.Spider):
     name = "options"
     start_urls = ['https://dallas.craigslist.org/']
     custom_settings = {
-        'DOWNLOAD_DELAY': 10
+        'DOWNLOAD_DELAY': 1
     }
     unique = []
 
